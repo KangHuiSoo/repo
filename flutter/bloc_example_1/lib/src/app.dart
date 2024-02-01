@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bloc_example_1/src/bloc/home.dart';
 import 'package:bloc_example_1/src/cubit/count_cubit.dart';
 import 'package:bloc_example_1/src/cubit/home.dart';
 import 'package:bloc_example_1/src/getx/count_getx_controller.dart';
@@ -7,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/count_bloc.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -42,12 +45,22 @@ class App extends StatelessWidget {
                     BlocProvider(
                       create: (context) => CountCubit(),
                       child: CubitHome(),
-                    ), 
+                    ),
                     duration: Duration.zero,
                   );
                 },
                 child: Text('Cubit 더하기')),
-            ElevatedButton(onPressed: () {}, child: Text('Bloc 더하기')),
+            ElevatedButton(
+                onPressed: () {
+                  Get.to(
+                    BlocProvider(
+                      create: (context) => CountBloc(),
+                      child: BlocHome(),
+                    ),
+                    duration: Duration.zero,
+                  );
+                },
+                child: Text('Bloc 더하기')),
           ],
         ),
       ),
