@@ -14,10 +14,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool _checkBoxValue = false;
   String _radioValue = 'option1';
+  double _sliderValue = 10.0;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text('Form Controls Example'),
@@ -63,6 +65,16 @@ class _MyAppState extends State<MyApp> {
                         }),
                     Text('option2'),
                   ],
+                ),
+                Slider(
+                  min: 0,
+                  max: 100,
+                  value: _sliderValue,
+                  onChanged: (value) {
+                    setState(() {
+                      _sliderValue = value;
+                    });
+                  },
                 )
               ],
             ),
