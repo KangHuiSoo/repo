@@ -42,7 +42,28 @@ class _MyAppState extends State<MyApp> {
                   },
                 ),
                 SizedBox(height: 10),
-
+                Row(
+                  children: [
+                    Radio(
+                        value: 'option1',
+                        groupValue: _radioValue,
+                        onChanged: (value) {
+                          setState(() {
+                            _radioValue = value!;
+                          });
+                        }),
+                    Text('option1'),
+                    Radio(
+                        value: 'option2',
+                        groupValue: _radioValue,
+                        onChanged: (value) {
+                          setState(() {
+                            _radioValue = value!;
+                          });
+                        }),
+                    Text('option2'),
+                  ],
+                )
               ],
             ),
           ),
