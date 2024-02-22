@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('ListView'),
         ),
-        body: _listViewBuilder(),
+        body: _listViewSeparator(),
       ),
     );
   }
@@ -56,9 +56,8 @@ class MyApp extends StatelessWidget {
     );
   }
 
-
-  //ListView.builder 사용 예제
-  Widget _listViewBuilder(){
+  //ListView.builder
+  Widget _listViewBuilder() {
     return ListView.builder(
       physics: BouncingScrollPhysics(),
       itemCount: 30,
@@ -75,4 +74,34 @@ class MyApp extends StatelessWidget {
     );
   }
 
+
+  //ListView.Separator
+  Widget _listViewSeparator(){
+    return ListView.separated(
+      physics: BouncingScrollPhysics(),
+      itemCount: 30,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text('Item$index'),
+          subtitle: Text('list_view item $index'),
+          leading: CircleAvatar(
+            backgroundColor: Colors.amber,
+            child: Text(index.toString()),
+          ),
+        );
+      },
+      separatorBuilder: (context, index) {
+        return Card(
+          color: Colors.grey,
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Text(
+              'Separator $index',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        );
+      },
+    );
+  }
 }
