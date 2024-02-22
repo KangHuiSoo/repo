@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextFormField(
-                    decoration: InputDecoration(labelText: 'Name'),
+                    decoration: InputDecoration(labelText: 'Name', errorStyle: TextStyle(color: Colors.blue)),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your name';
