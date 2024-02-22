@@ -12,7 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: _listViewBasic(),
+        appBar: AppBar(
+          title: Text('ListView'),
+        ),
+        body: _listViewBuilder(),
       ),
     );
   }
@@ -52,5 +55,24 @@ class MyApp extends StatelessWidget {
       ],
     );
   }
-}
 
+
+  //ListView.builder 사용 예제
+  Widget _listViewBuilder(){
+    return ListView.builder(
+      physics: BouncingScrollPhysics(),
+      itemCount: 30,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text('Item$index'),
+          subtitle: Text('list_view item $index'),
+          leading: CircleAvatar(
+            backgroundColor: Colors.amber,
+            child: Text(index.toString()),
+          ),
+        );
+      },
+    );
+  }
+
+}
