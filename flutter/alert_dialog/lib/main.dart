@@ -32,6 +32,15 @@ class DialogExample extends StatelessWidget {
         barrierDismissible: true,   //외부영역 터치시 닫힘 허용
         context: context,
         builder: (context) => AlertDialog(
+          contentPadding: EdgeInsets.all(14),
+          actionsPadding: EdgeInsets.all(7),
+          titlePadding: EdgeInsets.all(12),
+          buttonPadding: EdgeInsets.all(10),
+          backgroundColor: Colors.grey[400],
+          elevation: 20,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8)
+          ),
           title: Text('AlertDialog Title'),
           content: Text('AlertDialog Description'),
           actions: [
