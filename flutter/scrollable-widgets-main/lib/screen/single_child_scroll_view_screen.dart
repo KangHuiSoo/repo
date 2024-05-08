@@ -39,6 +39,7 @@ class SingleChildScrollViewScreen extends StatelessWidget {
   Widget renderAlwaysScroll() {
     return SingleChildScrollView(
       // NeverScrollableScrollPhysics - 스크롤 안됨
+      // AlwaysScrollableScrollPhysics - 스크롤 가능
       physics: AlwaysScrollableScrollPhysics(),
       child: Column(
         children: [
