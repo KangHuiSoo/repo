@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_test_01/notifier_page.dart';
 
 import 'async_page.dart';
 import 'home_page.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Riverpod Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const AsyncPage(),
+      home: const NotifierPage(),
     );
   }
 }
